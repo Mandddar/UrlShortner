@@ -4,8 +4,8 @@ from app.core.config import DATABASE_URL
 
 class Base(DeclarativeBase):
     pass
-engine = create_engine(DATABASE_URL,echo=True)
-SessionLocal= sessionmaker(
+engine = create_engine(DATABASE_URL, echo=False, pool_pre_ping=True)
+SessionLocal = sessionmaker(
     bind=engine,
     autoflush=False,
     autocommit=False
